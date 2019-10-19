@@ -51,83 +51,121 @@ typedef double float64;
 
 /// The maximum number of contact points between two convex shapes. Do
 /// not change this value.
+#ifndef b2_maxManifoldPoints
 #define b2_maxManifoldPoints	2
+#endif
 
 /// The maximum number of vertices on a convex polygon. You cannot increase
 /// this too much because b2BlockAllocator has a maximum object size.
+#ifndef b2_maxPolygonVertices
 #define b2_maxPolygonVertices	8
+#endif
 
 /// This is used to fatten AABBs in the dynamic tree. This allows proxies
 /// to move by a small amount without triggering a tree adjustment.
 /// This is in meters.
+#ifndef b2_aabbExtension
 #define b2_aabbExtension		0.1f
+#endif
 
 /// This is used to fatten AABBs in the dynamic tree. This is used to predict
 /// the future position based on the current displacement.
 /// This is a dimensionless multiplier.
+#ifndef b2_aabbMultiplier
 #define b2_aabbMultiplier		2.0f
+#endif
 
 /// A small length used as a collision and constraint tolerance. Usually it is
 /// chosen to be numerically significant, but visually insignificant.
+#ifndef b2_linearSlop
 #define b2_linearSlop			0.005f
+#endif
 
 /// A small angle used as a collision and constraint tolerance. Usually it is
 /// chosen to be numerically significant, but visually insignificant.
+#ifndef b2_angularSlop
 #define b2_angularSlop			(2.0f / 180.0f * b2_pi)
+#endif
 
 /// The radius of the polygon/edge shape skin. This should not be modified. Making
 /// this smaller means polygons will have an insufficient buffer for continuous collision.
 /// Making it larger may create artifacts for vertex collision.
+#ifndef b2_polygonRadius
 #define b2_polygonRadius		(2.0f * b2_linearSlop)
+#endif
 
 /// Maximum number of sub-steps per contact in continuous physics simulation.
+#ifndef b2_maxSubSteps
 #define b2_maxSubSteps			8
+#endif
 
 
 // Dynamics
 
 /// Maximum number of contacts to be handled to solve a TOI impact.
+#ifndef b2_maxTOIContacts
 #define b2_maxTOIContacts			32
+#endif
 
 /// A velocity threshold for elastic collisions. Any collision with a relative linear
 /// velocity below this threshold will be treated as inelastic.
+#ifndef b2_velocityThreshold
 #define b2_velocityThreshold		1.0f
+#endif
 
 /// The maximum linear position correction used when solving constraints. This helps to
 /// prevent overshoot.
+#ifndef b2_maxLinearCorrection
 #define b2_maxLinearCorrection		0.2f
+#endif
 
 /// The maximum angular position correction used when solving constraints. This helps to
 /// prevent overshoot.
+#ifndef b2_maxAngularCorrection
 #define b2_maxAngularCorrection		(8.0f / 180.0f * b2_pi)
+#endif
 
 /// The maximum linear velocity of a body. This limit is very large and is used
 /// to prevent numerical problems. You shouldn't need to adjust this.
+#ifndef b2_maxTranslation
 #define b2_maxTranslation			2.0f
+#endif
 #define b2_maxTranslationSquared	(b2_maxTranslation * b2_maxTranslation)
 
 /// The maximum angular velocity of a body. This limit is very large and is used
 /// to prevent numerical problems. You shouldn't need to adjust this.
+#ifndef b2_maxRotation
 #define b2_maxRotation				(0.5f * b2_pi)
+#endif
 #define b2_maxRotationSquared		(b2_maxRotation * b2_maxRotation)
 
 /// This scale factor controls how fast overlap is resolved. Ideally this would be 1 so
 /// that overlap is removed in one time step. However using values close to 1 often lead
 /// to overshoot.
+#ifndef b2_baumgarte
 #define b2_baumgarte				0.2f
+#endif
+#ifndef b2_toiBaugarte
 #define b2_toiBaugarte				0.75f
+#endif
 
 
 // Sleep
 
 /// The time that a body must be still before it will go to sleep.
+#ifndef b2_timeToSleep
 #define b2_timeToSleep				0.5f
+#endif
 
 /// A body cannot sleep if its linear velocity is above this tolerance.
+#ifndef b2_linearSleepTolerance
 #define b2_linearSleepTolerance		0.01f
+#endif
 
 /// A body cannot sleep if its angular velocity is above this tolerance.
+#ifndef b2_angularSleepTolerance
 #define b2_angularSleepTolerance	(2.0f / 180.0f * b2_pi)
+#endif
 
 // Memory Allocation
 
