@@ -1,5 +1,8 @@
 ![Box2D Logo](http://box2d.org/images/icon.gif)
 
+# READ ME: Thunderbots Modifications
+We have forked the Box2D repository in order to make several small changes to suit our needs in our simulator. The [b2Settings.h](https://github.com/UBC-Thunderbots/Box2D/blob/master/Box2D/Common/b2Settings.h) file has been changed  by wrapping most defined variables in `#ifndef` blocks. This allows us to define these variables as we choose within our code and build system.
+
 # Box2D 
 
 **Box2D is a 2D physics engine for games.**
